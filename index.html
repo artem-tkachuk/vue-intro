@@ -9,7 +9,7 @@
     <body>
         <div id="app">
             <div class="product">
-                <div class="product-info">
+                <div class="product-image">
                     <img :src="image" :alt="altText">
                 </div>
 
@@ -33,11 +33,22 @@
                         <li v-for="detail in details">{{ detail }}</li>
                     </ul>
 
-                    <div v-for="variant in variants">
-                        <p v-for="key in variant">
-                            {{ key }}
+                    <div v-for="variant in variants":key="variant.variantId">
+                        <p @mouseover="updateProduct(variant.variantImage)">
+                            {{ variant.variantColor }}
                         </p>
                     </div>
+
+                    <ul v-for="size in sizes">
+                        <li>{{ size }}</li>
+                    </ul>
+
+                    <div class="cart">
+                        <p>Cart({{ cart }})</p>
+                    </div>
+
+                    <button @click="addToCart">Add to Cart</button>
+                    <button @click="deleteFromCart">Delete from Cart</button>
                 </div>
             </div>
         </div>
