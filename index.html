@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue.js example</title>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="app">
+            <div class="product">
+                <div class="product-info">
+                    <img :src="image" :alt="altText">
+                </div>
+
+                <div class="product-info">
+                    <h2>{{ product }}</h2>
+                    <p>{{ description }}</p>
+                    <a :href="link">Prototype</a>
+                </div>
+            </div>
+        </div>
+        <script src="main.js"></script>
+    </body>
+</html>
+
