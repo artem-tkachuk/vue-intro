@@ -16,12 +16,22 @@
                 <div class="product-info">
                     <h2>{{ product }}</h2>
                     <p>{{ description }}</p>
+
+                    <p v-show="inStock">In Stock</p>
+
                     <!--<p v-if="inStock">In Stock</p>-->
                     <!--<p v-else>Out of Stock</p>-->
-                    <p v-if="inventory > 10">In Stock</p>
-                    <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out</p>
-                    <p v-else>Out of stock</p>
+
+                    <p v-if="inventory > 10">We have a lot of 'em!</p>
+                    <p v-else-if="inventory <= 10 && inventory > 0">Hurry up!</p>
+                    <p v-else>Nor in stock. Sorry :(</p>
+
                     <a :href="link">Prototype</a>
+                    <span v-show="onSale">On Sale!</span>
+
+                    <ul>
+                        <li v-for="detail in details">{{ detail }}</li>
+                    </ul>
                 </div>
             </div>
         </div>
